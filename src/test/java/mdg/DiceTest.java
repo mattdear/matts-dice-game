@@ -40,5 +40,4 @@ public class DiceTest {
         instance.setValue(expResult);
         assertEquals(expResult, instance.getValue());
     }
-    
 }

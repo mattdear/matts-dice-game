@@ -7,18 +7,17 @@ package mdg;
 
 public class Dice {
 
-	private int value;
+    private int value;
 
-	public Dice(int value) {
-		this.value = value;
-	}
+    public Dice(int value) {
+        this.value = value;
+    }
 
-	public int getValue() {
-		return value;
-	}
+    public int getValue() {
+        return value;
+    }
 
-	public void setValue(int value) {
-		this.value = value;
-	}
-
+    public void setValue(int value) {
+        this.value = value;
+    }
 }
