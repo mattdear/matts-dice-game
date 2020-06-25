@@ -193,7 +193,7 @@ public class Scoreboard {
                      + "| 5  | Fives        | " + fives + " |\n"
                      + "| 6  | Sixes        | " + sixes + " |\n"
                      + "| -  | Top Score    | " + topScore + " |\n"
-                     + "| -  | Bonus        | " + bonus + " |\n\n"
+                     + "| -  | Bonus        | " + topBonus + " |\n\n"
                      + "| Bottom Section ------|\n"
                      + "| 7  | 2/3 Match    | " + twoThreeMatch + " |\n"
                      + "| 8  | 3 Match      | " + threeMatch + " |\n"
@@ -201,23 +201,23 @@ public class Scoreboard {
                      + "| 10 | 5 Match      | " + fiveMatch + " |\n"
                      + "| 11 | 3 Line       | " + threeLine + " |\n"
                      + "| 12 | 4 Line       | " + fourLine + " |\n"
-                     + "| 13 | Extra        | " + extra + " |\n"
+                     + "| 13 | Extra        | " + extras + " |\n"
                      + "| -  | Bottom Score | " + bottomScore + " |\n\n"
-                     + "| -  | Total Score  | " + totalScore + " |\n"
+                     + "| -  | Total Score  | " + totalScore + " |\n");
     }
 
     private void calcTopScore(){
-        topScore = ones + twos + threes + fours + fives + sixes
+        topScore = ones + twos + threes + fours + fives + sixes;
         if(topScore >= 63){
-            bonus = 35;
+            topBonus = 35;
         }
     }
     
     private void calcBottomScore(){
-        bottomScore = twoThreeMatch + threeMatch + fourMatch + fiveMatch + threeLine + fourLine + extras
+        bottomScore = twoThreeMatch + threeMatch + fourMatch + fiveMatch + threeLine + fourLine + extras;
     }
     
     private void calcTotalScore(){
-        totoalScore = topScore + bottomScore;
+        totalScore = topScore + bottomScore;
     }
 }
