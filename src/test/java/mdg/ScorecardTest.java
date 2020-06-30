@@ -458,4 +458,136 @@ public class ScorecardTest {
         assertEquals(output, instance.display());
     }
     
+    /**
+     * Test of calcTopScore method, of class Scorecard.
+     */
+    @Test
+    public void testCalcTopScore() {
+        System.out.println("calcTopScore");
+        int topScore = 21;
+        int topBonus = 0;
+        Scorecard instance = new Scorecard();
+        assertEquals(0, instance.getTopScore());
+        instance.setOnes(1);
+        instance.setTwos(2);
+        instance.setThrees(3);
+        instance.setFours(4);
+        instance.setFives(5); 
+        instance.setSixes(6);
+        instance.calcTopScore();
+        assertEquals(topScore, instance.getTopScore());
+        assertEquals(topBonus, instance.getTopBonus());
+    }
+    
+    /**
+     * Test of calcTopScoreWithBonus method, of class Scorecard.
+     */
+    @Test
+    public void testCalcTopScoreWithBonus() {
+        System.out.println("calcTopScoreWithBonus");
+        int topScore = 119;
+        int topBonus = 35;
+        Scorecard instance = new Scorecard();
+        assertEquals(0, instance.getTopScore());
+        instance.setOnes(4);
+        instance.setTwos(8);
+        instance.setThrees(12);
+        instance.setFours(16);
+        instance.setFives(20); 
+        instance.setSixes(24);
+        instance.calcTopScore();
+        assertEquals(topScore, instance.getTopScore());
+        assertEquals(topBonus, instance.getTopBonus());
+    }
+    
+    /**
+     * Test of calcTopScoreWithBonusOn63 method, of class Scorecard.
+     */
+    @Test
+    public void testCalcTopScoreWithBonusOn63() {
+        System.out.println("calcTopScoreWithBonuson63");
+        int topScore = 98;
+        int topBonus = 35;
+        Scorecard instance = new Scorecard();
+        assertEquals(0, instance.getTopScore());
+        instance.setOnes(0);
+        instance.setTwos(0);
+        instance.setThrees(3);
+        instance.setFours(16);
+        instance.setFives(20); 
+        instance.setSixes(24);
+        instance.calcTopScore();
+        assertEquals(topScore, instance.getTopScore());
+        assertEquals(topBonus, instance.getTopBonus());
+    }
+    
+    /**
+     * Test of calcTopScoreWithoutBonusOn62 method, of class Scorecard.
+     */
+    @Test
+    public void testCalcTopScoreWithoutBonusOn62() {
+        System.out.println("calcTopScoreWithoutBonuson62");
+        int topScore = 62;
+        int topBonus = 0;
+        Scorecard instance = new Scorecard();
+        assertEquals(0, instance.getTopScore());
+        instance.setOnes(0);
+        instance.setTwos(2);
+        instance.setThrees(0);
+        instance.setFours(16);
+        instance.setFives(20); 
+        instance.setSixes(24);
+        instance.calcTopScore();
+        assertEquals(topScore, instance.getTopScore());
+        assertEquals(topBonus, instance.getTopBonus());
+    }
+    
+    /**
+     * Test of calcBottomScore method, of class Scorecard.
+     */
+    @Test
+    public void testCalcBottomScore() {
+        System.out.println("calcBottomScore");
+        int bottomScore = 28;
+        Scorecard instance = new Scorecard();
+        assertEquals(0, instance.getBottomScore());
+        instance.setTwoThreeMatch(1);
+        instance.setThreeMatch(2);
+        instance.setFourMatch(3);
+        instance.setFiveMatch(4);
+        instance.setThreeLine(5);
+        instance.setFourLine(6);
+        instance.setExtras(7);   
+        instance.calcBottomScore();
+        assertEquals(bottomScore, instance.getBottomScore());
+    }
+    
+    /**
+     * Test of calcTotalScore method, of class Scorecard.
+     */
+    @Test
+    public void testCalcTotalScore() {
+        System.out.println("calcTotalScore");
+        int totalScore = 49;
+        Scorecard instance = new Scorecard();
+        assertEquals(0, instance.getTotalScore());
+        instance.setOnes(1);
+        instance.setTwos(2);
+        instance.setThrees(3);
+        instance.setFours(4);
+        instance.setFives(5); 
+        instance.setSixes(6);
+        instance.setTwoThreeMatch(1);
+        instance.setThreeMatch(2);
+        instance.setFourMatch(3);
+        instance.setFiveMatch(4);
+        instance.setThreeLine(5);
+        instance.setFourLine(6);
+        instance.setExtras(7);
+        instance.calcTopScore();
+        instance.calcBottomScore();
+        instance.calcTotalScore();
+        assertEquals(totalScore, instance.getTotalScore());
+    }
+    
 }

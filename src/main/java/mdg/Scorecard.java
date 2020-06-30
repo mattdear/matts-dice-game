@@ -207,7 +207,7 @@ public class Scorecard {
     return output;
     }
 
-    private void calcTopScore(){
+    public void calcTopScore(){
         topScore = ones + twos + threes + fours + fives + sixes;
         if(topScore >= 63){
             topBonus = 35;
@@ -215,11 +215,11 @@ public class Scorecard {
         topScore = topScore + topBonus;
     }
     
-    private void calcBottomScore(){
+    public void calcBottomScore(){
         bottomScore = twoThreeMatch + threeMatch + fourMatch + fiveMatch + threeLine + fourLine + extras;
     }
     
-    private void calcTotalScore(){
+    public void calcTotalScore(){
         totalScore = topScore + bottomScore;
     }
 }
