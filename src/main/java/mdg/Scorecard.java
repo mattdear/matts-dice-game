@@ -5,7 +5,7 @@ package mdg;
  *  GitHub: http://www.github.com/mattdear
  */
 
-public class Scoreboard {
+public class Scorecard {
 
     private int ones;
     private int twos;
@@ -25,7 +25,7 @@ public class Scoreboard {
     private int bottomScore;
     private int totalScore;
 
-    public Scoreboard() {
+    public Scorecard() {
         this.ones = 0;
         this.twos = 0;
         this.threes = 0;
@@ -181,10 +181,9 @@ public class Scoreboard {
         this.totalScore = totalScore;
     }
 
-    public void display(){
+    public String display(){
     
-
-    System.out.println("|      MDG Scorecard     |\n\n"
+    String output = "|      MDG Scorecard     |\n\n"
                      + "| Top Section -----------|\n"
                      + "| 1  | Ones         | " + ones + " |\n"
                      + "| 2  | Twos         | " + twos + " |\n"
@@ -203,7 +202,9 @@ public class Scoreboard {
                      + "| 12 | 4 Line       | " + fourLine + " |\n"
                      + "| 13 | Extra        | " + extras + " |\n"
                      + "| -  | Bottom Score | " + bottomScore + " |\n\n"
-                     + "| -  | Total Score  | " + totalScore + " |\n");
+                     + "| -  | Total Score  | " + totalScore + " |\n";
+    
+    return output;
     }
 
     private void calcTopScore(){
@@ -211,6 +212,7 @@ public class Scoreboard {
         if(topScore >= 63){
             topBonus = 35;
         }
+        topScore = topScore + topBonus;
     }
     
     private void calcBottomScore(){
