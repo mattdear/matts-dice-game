@@ -14,10 +14,10 @@ public class ScorecardTest {
      * Test of constructor method, of class Scorecard.
      */
     public void testConstruct() {
-    System.out.println("Start scoreboardTestConstruct");
-    Scorecard instance = new Scorecard();
-    assertNotNull(instance);
-}
+        System.out.println("Start scoreboardTestConstruct");
+        Scorecard instance = new Scorecard();
+        assertNotNull(instance);
+    }
     
     /**
      * Test of getOnes method, of class Scorecard.
