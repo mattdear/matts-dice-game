@@ -51,4 +51,49 @@ public class DiceTest {
         instance.setValue(expResult);
         assertEquals(expResult, instance.getValue());
     }
+    
+    /**
+     * Test of getHold method, of class Dice.
+     */
+    @Test
+    public void testGetHold() {
+        System.out.println("Start diceTestGetHold");      
+        Dice instance = null;
+        boolean expResult = false;
+        instance = new Dice(0);
+        assertNotNull(instance);
+        assertEquals(expResult, instance.getHold());
+    }
+
+    /**
+     * Test of setHold method, of class Dice.
+     */
+    @Test
+    public void testSetHold() {
+        System.out.println("Start diceTestSetHold");
+        Dice instance = null;
+        boolean initialHold = false;
+        boolean expResult = true;
+        instance = new Dice(0);
+        assertNotNull(instance);
+        assertEquals(initialHold, instance.getHold());
+        instance.setHold(expResult);
+        assertEquals(expResult, instance.getHold());
+    }
+    
+    /**
+     * Test of roll method, of class Dice.
+     */
+    @Test
+    public void testRoll() {
+        System.out.println("Start diceTestRoll");
+        Dice instance = null;
+        int initialValue = 0;
+        instance = new Dice(initialValue);
+        assertNotNull(instance);
+        assertEquals(initialValue, instance.getValue());
+        instance.roll();
+        System.out.println("diceTestRoll new value = " + instance.getValue());
+        assertNotNull(instance.getValue());
+    }
 }

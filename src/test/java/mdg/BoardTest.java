@@ -166,4 +166,24 @@ public class BoardTest {
         assertEquals(activeSixes, instance.getActiveSixes());
     }
     
+    /**
+     * Test of diceValues method, of class Board.
+     */
+    @Test
+    public void testDiceValues() {
+        System.out.println("diceValues");
+        Board instance = new Board();
+        Dice d1 = new Dice(0);
+        Dice d2 = new Dice(0);
+        Dice d3 = new Dice(0);
+        Dice d4 = new Dice(0);
+        Dice d5 = new Dice(0);
+        d1.roll();
+        d2.roll();
+        d3.roll();
+        d4.roll();
+        d5.roll();
+        System.out.println();
+    }
+    
 }

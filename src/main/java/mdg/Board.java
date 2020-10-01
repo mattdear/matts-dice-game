@@ -69,4 +69,11 @@ public class Board {
     public void setActiveSixes(int activeSixes) {
         this.activeSixes = activeSixes;
     }
+    public String diceValues(int dice1, int dice2, int dice3, int dice4, int dice5) {
+        String output = "\n| Roll --------------------------|\n"
+                + "| Dice  | 1  | 2  | 3  | 4  | 5  |\n"
+                + "| Value | " + dice1 + "  | " + dice2 + "  | " + dice3 + "  | " + dice4 + "  | " + dice5 + "  |\n";
+
+        return output;
+    }
 }

@@ -435,26 +435,27 @@ public class ScorecardTest {
     public void testDisplay() {
         System.out.println("display");
         Scorecard instance = new Scorecard();
-        String output = "|      MDG Scorecard     |\n\n"
+    String output = "\n|      MDG Scorecard     |\n"
                      + "| Top Section -----------|\n"
-                     + "| 1  | Ones         | 0 |\n"
-                     + "| 2  | Twos         | 0 |\n"
-                     + "| 3  | Threes       | 0 |\n"
-                     + "| 4  | Fours        | 0 |\n"
-                     + "| 5  | Fives        | 0 |\n"
-                     + "| 6  | Sixes        | 0 |\n"
-                     + "| -  | Top Score    | 0 |\n"
-                     + "| -  | Bonus        | 0 |\n\n"
-                     + "| Bottom Section ------|\n"
-                     + "| 7  | 2/3 Match    | 0 |\n"
-                     + "| 8  | 3 Match      | 0 |\n"
-                     + "| 9  | 4 Match      | 0 |\n"
-                     + "| 10 | 5 Match      | 0 |\n"
-                     + "| 11 | 3 Line       | 0 |\n"
-                     + "| 12 | 4 Line       | 0 |\n"
-                     + "| 13 | Extra        | 0 |\n"
-                     + "| -  | Bottom Score | 0 |\n\n"
-                     + "| -  | Total Score  | 0 |\n";
+                     + "| 1  | Ones          | 0 |\n"
+                     + "| 2  | Twos          | 0 |\n"
+                     + "| 3  | Threes        | 0 |\n"
+                     + "| 4  | Fours         | 0 |\n"
+                     + "| 5  | Fives         | 0 |\n"
+                     + "| 6  | Sixes         | 0 |\n"
+                     + "| -  | Bonus         | 0 |\n"
+                     + "| Bottom Section --------|\n"
+                     + "| 7  | 2/3 Match     | 0 |\n"
+                     + "| 8  | 3 Match       | 0 |\n"
+                     + "| 9  | 4 Match       | 0 |\n"
+                     + "| 10 | 5 Match       | 0 |\n"
+                     + "| 11 | 3 Line        | 0 |\n"
+                     + "| 12 | 4 Line        | 0 |\n"
+                     + "| 13 | Extra         | 0 |\n"
+                     + "| Totals ----------------|\n"
+                     + "| -  | Top Score     | 0 |\n" 
+                     + "| -  | Bottom Score  | 0 |\n"         
+                     + "| -  | Total Score   | 0 |\n";
         assertEquals(output, instance.display());
     }
     

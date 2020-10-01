@@ -183,26 +183,27 @@ public class Scorecard {
 
     public String display(){
     
-    String output = "|      MDG Scorecard     |\n\n"
+    String output = "\n|      MDG Scorecard     |\n"
                      + "| Top Section -----------|\n"
-                     + "| 1  | Ones         | " + ones + " |\n"
-                     + "| 2  | Twos         | " + twos + " |\n"
-                     + "| 3  | Threes       | " + threes + " |\n"
-                     + "| 4  | Fours        | " + fours + " |\n"
-                     + "| 5  | Fives        | " + fives + " |\n"
-                     + "| 6  | Sixes        | " + sixes + " |\n"
-                     + "| -  | Top Score    | " + topScore + " |\n"
-                     + "| -  | Bonus        | " + topBonus + " |\n\n"
-                     + "| Bottom Section ------|\n"
-                     + "| 7  | 2/3 Match    | " + twoThreeMatch + " |\n"
-                     + "| 8  | 3 Match      | " + threeMatch + " |\n"
-                     + "| 9  | 4 Match      | " + fourMatch + " |\n"
-                     + "| 10 | 5 Match      | " + fiveMatch + " |\n"
-                     + "| 11 | 3 Line       | " + threeLine + " |\n"
-                     + "| 12 | 4 Line       | " + fourLine + " |\n"
-                     + "| 13 | Extra        | " + extras + " |\n"
-                     + "| -  | Bottom Score | " + bottomScore + " |\n\n"
-                     + "| -  | Total Score  | " + totalScore + " |\n";
+                     + "| 1  | Ones          | " + ones + " |\n"
+                     + "| 2  | Twos          | " + twos + " |\n"
+                     + "| 3  | Threes        | " + threes + " |\n"
+                     + "| 4  | Fours         | " + fours + " |\n"
+                     + "| 5  | Fives         | " + fives + " |\n"
+                     + "| 6  | Sixes         | " + sixes + " |\n"
+                     + "| -  | Bonus         | " + topBonus + " |\n"
+                     + "| Bottom Section --------|\n"
+                     + "| 7  | 2/3 Match     | " + twoThreeMatch + " |\n"
+                     + "| 8  | 3 Match       | " + threeMatch + " |\n"
+                     + "| 9  | 4 Match       | " + fourMatch + " |\n"
+                     + "| 10 | 5 Match       | " + fiveMatch + " |\n"
+                     + "| 11 | 3 Line        | " + threeLine + " |\n"
+                     + "| 12 | 4 Line        | " + fourLine + " |\n"
+                     + "| 13 | Extra         | " + extras + " |\n"
+                     + "| Totals ----------------|\n"
+                     + "| -  | Top Score     | " + topScore + " |\n" 
+                     + "| -  | Bottom Score  | " + bottomScore + " |\n"         
+                     + "| -  | Total Score   | " + totalScore + " |\n";
     
     return output;
     }
