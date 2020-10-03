@@ -4,15 +4,13 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *  Developer: Matthew Dear
- *  GitHub: http://www.github.com/mattdear
+ * Developer: Matthew Dear GitHub: http://www.github.com/mattdear
  */
-
 public class BoardTest {
-    
+
     public BoardTest() {
     }
-    
+
     /**
      * Test of constructor method, of class Scorecard.
      */
@@ -21,7 +19,7 @@ public class BoardTest {
         Board instance = new Board();
         assertNotNull(instance);
     }
-    
+
     /**
      * Test of getActiveOnes method, of class Board.
      */
@@ -165,25 +163,63 @@ public class BoardTest {
         instance.setActiveSixes(activeSixes);
         assertEquals(activeSixes, instance.getActiveSixes());
     }
-    
+
     /**
      * Test of diceValues method, of class Board.
      */
     @Test
     public void testDiceValues() {
         System.out.println("diceValues");
+        int diceTotal = 0;
+        assertEquals(0, diceTotal);
         Board instance = new Board();
-        Dice d1 = new Dice(0);
-        Dice d2 = new Dice(0);
-        Dice d3 = new Dice(0);
-        Dice d4 = new Dice(0);
-        Dice d5 = new Dice(0);
-        d1.roll();
-        d2.roll();
-        d3.roll();
-        d4.roll();
-        d5.roll();
-        System.out.println();
+        assertNotNull(instance);
+        Dice d1 = new Dice(1);
+        Dice d2 = new Dice(2);
+        Dice d3 = new Dice(3);
+        Dice d4 = new Dice(4);
+        Dice d5 = new Dice(5);
+        diceTotal = instance.diceTotal(d1.getValue(), d2.getValue(), d3.getValue(), d4.getValue(), d5.getValue());
+        assertEquals(15, diceTotal);
     }
-    
+
+    /**
+     * Test of setActiveSixes method, of class Board.
+     */
+    @Test
+    public void testActiveDice() {
+        System.out.println("activeDice");
+        Board instance = new Board();
+        assertNotNull(instance);
+        assertEquals(0, instance.getActiveOnes());
+        assertEquals(0, instance.getActiveTwos());
+        assertEquals(0, instance.getActiveThrees());
+        assertEquals(0, instance.getActiveFours());
+        assertEquals(0, instance.getActiveFives());
+        assertEquals(0, instance.getActiveSixes());
+        instance.activeDice(instance, 1);
+        instance.activeDice(instance, 2);
+        instance.activeDice(instance, 3);
+        instance.activeDice(instance, 4);
+        instance.activeDice(instance, 5);
+        instance.activeDice(instance, 6);
+        assertEquals(1, instance.getActiveOnes());
+        assertEquals(1, instance.getActiveTwos());
+        assertEquals(1, instance.getActiveThrees());
+        assertEquals(1, instance.getActiveFours());
+        assertEquals(1, instance.getActiveFives());
+        assertEquals(1, instance.getActiveSixes());
+        instance.activeDice(instance, 1);
+        instance.activeDice(instance, 2);
+        instance.activeDice(instance, 3);
+        instance.activeDice(instance, 4);
+        instance.activeDice(instance, 5);
+        instance.activeDice(instance, 6);
+        assertEquals(2, instance.getActiveOnes());
+        assertEquals(2, instance.getActiveTwos());
+        assertEquals(2, instance.getActiveThrees());
+        assertEquals(2, instance.getActiveFours());
+        assertEquals(2, instance.getActiveFives());
+        assertEquals(2, instance.getActiveSixes());
+    }
 }

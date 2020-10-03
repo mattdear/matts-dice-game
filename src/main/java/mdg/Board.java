@@ -76,4 +76,32 @@ public class Board {
 
         return output;
     }
+
+    public int diceTotal(int dice1, int dice2, int dice3, int dice4, int dice5) {
+        int diceTotal = dice1 + dice2 + dice3 + dice4 + dice5;
+        return diceTotal;
+    }
+    
+    public void activeDice(Board board, int value){
+        switch(value){
+            case 1:
+                board.setActiveOnes(activeOnes = activeOnes + 1);
+                break;
+            case 2:
+                board.setActiveTwos(activeTwos = activeTwos +1);
+                break;
+            case 3:
+                board.setActiveThrees(activeThrees = activeThrees +1);
+                break;    
+            case 4:
+                board.setActiveFours(activeFours = activeFours+1);
+                break;    
+            case 5:
+                board.setActiveFives(activeFives=activeFives+1);
+                break;    
+            case 6:
+                board.setActiveSixes(activeSixes=activeSixes+1);
+                break;    
+        }
+    }
 }
