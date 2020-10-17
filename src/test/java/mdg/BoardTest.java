@@ -171,6 +171,29 @@ public class BoardTest {
     public void testDiceValues() {
         System.out.println("diceValues");
         int diceTotal = 0;
+        String diceCard = "\n| Roll --------------------------|\n"
+                + "| Dice  | 1  | 2  | 3  | 4  | 5  |\n"
+                + "| Value | 1  | 2  | 3  | 4  | 5  |\n";
+        assertEquals(0, diceTotal);
+        assertNotNull(diceCard);
+        Board instance = new Board();
+        assertNotNull(instance);
+        Dice d1 = new Dice(1);
+        Dice d2 = new Dice(2);
+        Dice d3 = new Dice(3);
+        Dice d4 = new Dice(4);
+        Dice d5 = new Dice(5);
+        String output = instance.diceValues(d1.getValue(), d2.getValue(), d3.getValue(), d4.getValue(), d5.getValue());
+        assertEquals(diceCard, output);
+    }
+
+    /**
+     * Test of diceTotal method, of class Board.
+     */
+    @Test
+    public void testDiceTotal() {
+        System.out.println("diceValues");
+        int diceTotal = 0;
         assertEquals(0, diceTotal);
         Board instance = new Board();
         assertNotNull(instance);
@@ -184,7 +207,7 @@ public class BoardTest {
     }
 
     /**
-     * Test of setActiveSixes method, of class Board.
+     * Test of activeDice method, of class Board.
      */
     @Test
     public void testActiveDice() {

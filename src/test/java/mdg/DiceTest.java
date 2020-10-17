@@ -4,12 +4,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *  Developer: Matthew Dear
- *  GitHub: http://www.github.com/mattdear
+ * Developer: Matthew Dear 
+ * GitHub: http://www.github.com/mattdear
  */
 
 public class DiceTest {
-    
+
     /**
      * Test of constructor method, of class Dice.
      */
@@ -28,7 +28,7 @@ public class DiceTest {
      */
     @Test
     public void testGetValue() {
-        System.out.println("Start diceTestGetValue");      
+        System.out.println("Start diceTestGetValue");
         Dice instance = null;
         int expResult = 2;
         instance = new Dice(expResult);
@@ -51,13 +51,13 @@ public class DiceTest {
         instance.setValue(expResult);
         assertEquals(expResult, instance.getValue());
     }
-    
+
     /**
      * Test of getHold method, of class Dice.
      */
     @Test
     public void testGetHold() {
-        System.out.println("Start diceTestGetHold");      
+        System.out.println("Start diceTestGetHold");
         Dice instance = null;
         boolean expResult = false;
         instance = new Dice(0);
@@ -80,7 +80,7 @@ public class DiceTest {
         instance.setHold(expResult);
         assertEquals(expResult, instance.getHold());
     }
-    
+
     /**
      * Test of roll method, of class Dice.
      */
