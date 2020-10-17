@@ -5,7 +5,7 @@ name: MavenCI
 
 on:
   push:
-    branches: [ dice ]
+    branches: [ testing ]
   pull_request:
     branches: [ dev ]
 
