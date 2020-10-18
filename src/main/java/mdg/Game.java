@@ -202,42 +202,42 @@ public class Game {
                         //Scorecard input verification
                         if (userInputNumber == 1) { //Ones
                             if (scorecard.getOnes() == 0 && board.getActiveOnes() > 0) {
-                                scorecard.setOnes(board.getActiveOnes());
+                                scorecard.setOnes(board.getActiveOnes()*1);
                                 isScorecardLocation = false;
                             } else {
                                 System.out.println("\nInput invalid, please try again.\n\n");
                             }
                         } else if (userInputNumber == 2) { //Twos
                             if (scorecard.getTwos() == 0 && board.getActiveTwos() > 0) {
-                                scorecard.setTwos(board.getActiveTwos());
+                                scorecard.setTwos(board.getActiveTwos()*2);
                                 isScorecardLocation = false;
                             } else {
                                 System.out.println("\nInput invalid, please try again.\n\n");
                             }
                         } else if (userInputNumber == 3) { //Threes
                             if (scorecard.getThrees() == 0 && board.getActiveThrees() > 0) {
-                                scorecard.setThrees(board.getActiveThrees());
+                                scorecard.setThrees(board.getActiveThrees()*3);
                                 isScorecardLocation = false;
                             } else {
                                 System.out.println("\nInput invalid, please try again.\n\n");
                             }
                         } else if (userInputNumber == 4) { //Fours
                             if (scorecard.getFours() == 0 && board.getActiveFours() > 0) {
-                                scorecard.setFours(board.getActiveFours());
+                                scorecard.setFours(board.getActiveFours()*4);
                                 isScorecardLocation = false;
                             } else {
                                 System.out.println("\nInput invalid, please try again.\n\n");
                             }
                         } else if (userInputNumber == 5) { //Fives
                             if (scorecard.getFives() == 0 && board.getActiveFives() > 0) {
-                                scorecard.setFives(board.getActiveFives());
+                                scorecard.setFives(board.getActiveFives()*5);
                                 isScorecardLocation = false;
                             } else {
                                 System.out.println("\nInput invalid, please try again.\n\n");
                             }
                         } else if (userInputNumber == 6) { //Sixes
                             if (scorecard.getSixes() == 0 && board.getActiveSixes() > 0) {
-                                scorecard.setSixes(board.getActiveSixes());
+                                scorecard.setSixes(board.getActiveSixes()*6);
                                 isScorecardLocation = false;
                             } else {
                                 System.out.println("\nInput invalid, please try again.\n\n");
@@ -264,7 +264,7 @@ public class Game {
                                 System.out.println("\nInput invalid, please try again.\n\n");
                             }
                         } else if (userInputNumber == 10) { //5 Match
-                            if ((diceCompare.equals("11111") || diceCompare.equals("22222") || diceCompare.equals("33333") || diceCompare.equals("44444") || diceCompare.equals("55555")) && scorecard.getFiveMatch() == 0) {
+                            if ((board.getActiveOnes() == 5 || board.getActiveTwos() == 5 || board.getActiveThrees() == 5 || board.getActiveFours() == 5 || board.getActiveFives() == 5 || board.getActiveSixes() == 5) && scorecard.getFiveMatch() == 0) {
                                 scorecard.setFiveMatch(50);
                                 isScorecardLocation = false;
                             } else {
@@ -294,6 +294,8 @@ public class Game {
                         } else {
                             System.out.println("\nInput invalid, please try again.\n\n");
                         }
+                        
+                        //Variable reset
                         diceTotal = 0;
                         diceArray.clear();
                     } while (isScorecardLocation == true);
@@ -302,6 +304,11 @@ public class Game {
                     scorecard.calcTotalScore();
 
                     //Veriable resets
+                    d1.setHold(false);
+                    d2.setHold(false);
+                    d3.setHold(false);
+                    d4.setHold(false);
+                    d5.setHold(false);
                     board.setActiveOnes(0);
                     board.setActiveTwos(0);
                     board.setActiveThrees(0);
