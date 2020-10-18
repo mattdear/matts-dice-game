@@ -1,7 +1,6 @@
 package mdg;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -190,15 +189,24 @@ public class Game {
                         int diceTotal = board.diceTotal(d1.getValue(), d2.getValue(), d3.getValue(), d4.getValue(), d5.getValue());
 
                         //Dice added to array to be sorted
-                        ArrayList<String> diceArray = new ArrayList<String>();
-                        diceArray.add(Integer.toString(d1.getValue()));
-                        diceArray.add(Integer.toString(d2.getValue()));
-                        diceArray.add(Integer.toString(d3.getValue()));
-                        diceArray.add(Integer.toString(d4.getValue()));
-                        diceArray.add(Integer.toString(d5.getValue()));
-                        Collections.sort(diceArray);
-                        String diceCompare = diceArray.toString();
-
+                        int[] diceArray = new int[5];
+                        diceArray[0] = d1.getValue();
+                        diceArray[1] = d2.getValue();
+                        diceArray[2] = d3.getValue();
+                        diceArray[3] = d4.getValue();
+                        diceArray[4] = d5.getValue();
+                        Arrays.sort(diceArray);
+                        
+                        //Looks at first array item and compares to the second if they are not the same the first array item will be added to the string.
+                        //This continues though the array until the penultimate member. The last array member is added by default after the loop has ended. 
+                        String tempDiceString = "";
+                        for (int i = 0; i<4; i++){
+                            if(diceArray[i] != diceArray[i+1]){
+                                tempDiceString = tempDiceString + diceArray[i];
+                            }
+                        }
+                        tempDiceString = tempDiceString + diceArray[4];
+                            
                         //Scorecard input verification
                         if (userInputNumber == 1) { //Ones
                             if (scorecard.getOnes() == 0 && board.getActiveOnes() > 0) {
@@ -271,14 +279,14 @@ public class Game {
                                 System.out.println("\nInput invalid, please try again.\n\n");
                             }
                         } else if (userInputNumber == 11) { //3 Line
-                            if (((d1.getValue() + 2) == d3.getValue() || (d2.getValue() + 2) == d4.getValue() || (d3.getValue() + 2) == d5.getValue()) && scorecard.getThreeLine() == 0) {
+                            if (tempDiceString.length() >= 3 && scorecard.getThreeLine() == 0) {
                                 scorecard.setThreeLine(30);
                                 isScorecardLocation = false;
                             } else {
                                 System.out.println("\nInput invalid, please try again.\n\n");
                             }
                         } else if (userInputNumber == 12) { //4 Line
-                            if (((d1.getValue() + 3) == d4.getValue() || (d2.getValue() + 3) == d5.getValue()) && scorecard.getFourLine() == 0) {
+                            if (tempDiceString.length() >= 4 && scorecard.getFourLine() == 0) {
                                 scorecard.setFourLine(40);
                                 isScorecardLocation = false;
                             } else {
@@ -297,7 +305,6 @@ public class Game {
                         
                         //Variable reset
                         diceTotal = 0;
-                        diceArray.clear();
                     } while (isScorecardLocation == true);
                     scorecard.calcTopScore();
                     scorecard.calcBottomScore();
