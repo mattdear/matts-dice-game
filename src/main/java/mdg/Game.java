@@ -8,6 +8,7 @@ import java.util.Scanner;
  * Developer: Matthew Dear 
  * GitHub: http://www.github.com/mattdear
  */
+
 public class Game {
 
     public static void main(String[] args) {
@@ -32,12 +33,11 @@ public class Game {
         boolean isLoopMenu = true;
         do {
             System.out.println("--- Welcome to MDG lets play! ---\n\nPlease select one of the following options:\n1 - New Game\n2 - Exit\n");
-
             userInputString = stringScanner.nextLine().toUpperCase().trim();
-
             if (userInputString.equals("1")) {
                 int gameCycles = 1;
                 do {
+                    //Roll dice
                     if (!d1.getHold()) {
                         d1.roll();
                     }
@@ -53,6 +53,8 @@ public class Game {
                     if (!d5.getHold()) {
                         d5.roll();
                     }
+
+                    //Roll cycle
                     for (int i = 1; i < 3; i++) {
                         System.out.println(scorecard.display());
                         System.out.println(board.diceValues(d1.getValue(), d2.getValue(), d3.getValue(), d4.getValue(), d5.getValue()));
@@ -70,6 +72,8 @@ public class Game {
                         } while (isRollAgain == true);
                         if (userInputString.equals("N")) {
                             i = 3;
+
+                        //Dice hold setting    
                         } else if (userInputString.equals("Y")) {
                             boolean isHoldDiceOne = true;
                             do {
@@ -141,6 +145,8 @@ public class Game {
                                     System.out.println("\nInput invalid, please try again.\n\n");
                                 }
                             } while (isHoldDiceFive == true);
+
+                            //Dice roll
                             if (!d1.getHold()) {
                                 d1.roll();
                             }
@@ -160,11 +166,19 @@ public class Game {
                             System.out.println("\nInput invalid, please try again.\n\n");
                         }
                     }
+                    
+                    //Setting active dice
+                    board.activeDice(board, d1.getValue());
+                    board.activeDice(board, d2.getValue());
+                    board.activeDice(board, d3.getValue());
+                    board.activeDice(board, d4.getValue());
+                    board.activeDice(board, d5.getValue());
                     System.out.println(scorecard.display());
                     System.out.println(board.diceValues(d1.getValue(), d2.getValue(), d3.getValue(), d4.getValue(), d5.getValue()));
                     System.out.println("Round " + gameCycles + " of 13");
-
                     boolean isScorecardLocation = true;
+
+                    //Scorecard location loop
                     do {
                         System.out.println("Place on scorecard? (1-13)");
                         while (!numberScanner.hasNextInt()) {
@@ -173,6 +187,9 @@ public class Game {
                             numberScanner.next();
                         }
                         userInputNumber = numberScanner.nextInt();
+                        int diceTotal = board.diceTotal(d1.getValue(), d2.getValue(), d3.getValue(), d4.getValue(), d5.getValue());
+
+                        //Dice added to array to be sorted
                         ArrayList<String> diceArray = new ArrayList<String>();
                         diceArray.add(Integer.toString(d1.getValue()));
                         diceArray.add(Integer.toString(d2.getValue()));
@@ -181,80 +198,95 @@ public class Game {
                         diceArray.add(Integer.toString(d5.getValue()));
                         Collections.sort(diceArray);
                         String diceCompare = diceArray.toString();
-                        if (userInputNumber == 1) {
+
+                        //Scorecard input verification
+                        if (userInputNumber == 1) { //Ones
                             if (scorecard.getOnes() == 0 && board.getActiveOnes() > 0) {
+                                scorecard.setOnes(board.getActiveOnes()*1);
                                 isScorecardLocation = false;
                             } else {
                                 System.out.println("\nInput invalid, please try again.\n\n");
                             }
-                        } else if (userInputNumber == 2) {
+                        } else if (userInputNumber == 2) { //Twos
                             if (scorecard.getTwos() == 0 && board.getActiveTwos() > 0) {
+                                scorecard.setTwos(board.getActiveTwos()*2);
                                 isScorecardLocation = false;
                             } else {
                                 System.out.println("\nInput invalid, please try again.\n\n");
                             }
-                        } else if (userInputNumber == 3) {
+                        } else if (userInputNumber == 3) { //Threes
                             if (scorecard.getThrees() == 0 && board.getActiveThrees() > 0) {
+                                scorecard.setThrees(board.getActiveThrees()*3);
                                 isScorecardLocation = false;
                             } else {
                                 System.out.println("\nInput invalid, please try again.\n\n");
                             }
-                        } else if (userInputNumber == 4) {
+                        } else if (userInputNumber == 4) { //Fours
                             if (scorecard.getFours() == 0 && board.getActiveFours() > 0) {
+                                scorecard.setFours(board.getActiveFours()*4);
                                 isScorecardLocation = false;
                             } else {
                                 System.out.println("\nInput invalid, please try again.\n\n");
                             }
-                        } else if (userInputNumber == 5) {
+                        } else if (userInputNumber == 5) { //Fives
                             if (scorecard.getFives() == 0 && board.getActiveFives() > 0) {
+                                scorecard.setFives(board.getActiveFives()*5);
                                 isScorecardLocation = false;
                             } else {
                                 System.out.println("\nInput invalid, please try again.\n\n");
                             }
-                        } else if (userInputNumber == 6) {
+                        } else if (userInputNumber == 6) { //Sixes
                             if (scorecard.getSixes() == 0 && board.getActiveSixes() > 0) {
+                                scorecard.setSixes(board.getActiveSixes()*6);
                                 isScorecardLocation = false;
                             } else {
                                 System.out.println("\nInput invalid, please try again.\n\n");
                             }
-                        } else if (userInputNumber == 7) {
+                        } else if (userInputNumber == 7) { //2 3 Match
                             if ((board.getActiveOnes() == 2 || board.getActiveTwos() == 2 || board.getActiveThrees() == 2 || board.getActiveFours() == 2 || board.getActiveFives() == 2 || board.getActiveSixes() == 2) && (board.getActiveOnes() == 3 || board.getActiveTwos() == 3 || board.getActiveThrees() == 3 || board.getActiveFours() == 3 || board.getActiveFives() == 3 || board.getActiveSixes() == 3) && scorecard.getTwoThreeMatch() == 0) {
+                                scorecard.setTwoThreeMatch(25);
                                 isScorecardLocation = false;
                             } else {
                                 System.out.println("\nInput invalid, please try again.\n\n");
                             }
-                        } else if (userInputNumber == 8) {
+                        } else if (userInputNumber == 8) { //3 Match
                             if ((board.getActiveOnes() == 3 || board.getActiveTwos() == 3 || board.getActiveThrees() == 3 || board.getActiveFours() == 3 || board.getActiveFives() == 3 || board.getActiveSixes() == 3) && scorecard.getThreeMatch() == 0) {
+                                scorecard.setThreeMatch(diceTotal);
                                 isScorecardLocation = false;
                             } else {
                                 System.out.println("\nInput invalid, please try again.\n\n");
                             }
-                        } else if (userInputNumber == 9) {
+                        } else if (userInputNumber == 9) { //4 Match
                             if ((board.getActiveOnes() == 4 || board.getActiveTwos() == 4 || board.getActiveThrees() == 4 || board.getActiveFours() == 4 || board.getActiveFives() == 4 || board.getActiveSixes() == 4) && scorecard.getFourMatch() == 0) {
+                                scorecard.setFourMatch(diceTotal);
                                 isScorecardLocation = false;
                             } else {
                                 System.out.println("\nInput invalid, please try again.\n\n");
                             }
-                        } else if (userInputNumber == 10) {
-                            if ((diceCompare.equals("11111") || diceCompare.equals("22222") || diceCompare.equals("33333") || diceCompare.equals("44444") || diceCompare.equals("55555")) && scorecard.getFiveMatch() == 0) {
+                        } else if (userInputNumber == 10) { //5 Match
+                            if ((board.getActiveOnes() == 5 || board.getActiveTwos() == 5 || board.getActiveThrees() == 5 || board.getActiveFours() == 5 || board.getActiveFives() == 5 || board.getActiveSixes() == 5) && scorecard.getFiveMatch() == 0) {
+                                scorecard.setFiveMatch(50);
                                 isScorecardLocation = false;
                             } else {
                                 System.out.println("\nInput invalid, please try again.\n\n");
                             }
-                        } else if (userInputNumber == 11) {
+                        } else if (userInputNumber == 11) { //3 Line
                             if (((d1.getValue() + 2) == d3.getValue() || (d2.getValue() + 2) == d4.getValue() || (d3.getValue() + 2) == d5.getValue()) && scorecard.getThreeLine() == 0) {
+                                scorecard.setThreeLine(30);
                                 isScorecardLocation = false;
                             } else {
                                 System.out.println("\nInput invalid, please try again.\n\n");
                             }
-                        } else if (userInputNumber == 12) {
+                        } else if (userInputNumber == 12) { //4 Line
                             if (((d1.getValue() + 3) == d4.getValue() || (d2.getValue() + 3) == d5.getValue()) && scorecard.getFourLine() == 0) {
+                                scorecard.setFourLine(40);
                                 isScorecardLocation = false;
                             } else {
                                 System.out.println("\nInput invalid, please try again.\n\n");
                             }
-                        } else if (userInputNumber == 13) {
+                        } else if (userInputNumber == 13) { //Extras
                             if (scorecard.getExtras() == 0) {
+                                scorecard.setExtras(diceTotal);
                                 isScorecardLocation = false;
                             } else {
                                 System.out.println("\nInput invalid, please try again.\n\n");
@@ -262,57 +294,27 @@ public class Game {
                         } else {
                             System.out.println("\nInput invalid, please try again.\n\n");
                         }
+                        
+                        //Variable reset
+                        diceTotal = 0;
+                        diceArray.clear();
                     } while (isScorecardLocation == true);
-                    int diceTotal = board.diceTotal(d1.getValue(), d2.getValue(), d3.getValue(), d4.getValue(), d5.getValue());
-                    board.activeDice(board, d1.getValue());
-                    board.activeDice(board, d2.getValue());
-                    board.activeDice(board, d3.getValue());
-                    board.activeDice(board, d4.getValue());
-                    board.activeDice(board, d5.getValue());
-                    switch (userInputNumber) {
-                        case 1: //Ones
-                            scorecard.setOnes(board.getActiveOnes());
-                            break;
-                        case 2: //Twos
-                            scorecard.setTwos(board.getActiveTwos());
-                            break;
-                        case 3: //Threes
-                            scorecard.setThrees(board.getActiveThrees());
-                            break;
-                        case 4: //Fours
-                            scorecard.setFours(board.getActiveFours());
-                            break;
-                        case 5: //Fives
-                            scorecard.setFives(board.getActiveFives());
-                            break;
-                        case 6: //Sixes
-                            scorecard.setSixes(board.getActiveSixes());
-                            break;
-                        case 7: //2 3 Match
-                            scorecard.setTwoThreeMatch(25);
-                            break;
-                        case 8: //3 Match
-                            scorecard.setThreeMatch(diceTotal);
-                            break;
-                        case 9: //4 Match
-                            scorecard.setFourMatch(diceTotal);
-                            break;
-                        case 10: //5 Match
-                            scorecard.setFiveMatch(50);
-                            break;
-                        case 11: //3 Line
-                            scorecard.setThreeLine(30);
-                            break;
-                        case 12: //4 Line
-                            scorecard.setFourLine(40);
-                            break;
-                        case 13: //Extra
-                            scorecard.setExtras(diceTotal);
-                            break;
-                    }
                     scorecard.calcTopScore();
                     scorecard.calcBottomScore();
                     scorecard.calcTotalScore();
+
+                    //Veriable resets
+                    d1.setHold(false);
+                    d2.setHold(false);
+                    d3.setHold(false);
+                    d4.setHold(false);
+                    d5.setHold(false);
+                    board.setActiveOnes(0);
+                    board.setActiveTwos(0);
+                    board.setActiveThrees(0);
+                    board.setActiveFours(0);
+                    board.setActiveFives(0);
+                    board.setActiveSixes(0);
                     gameCycles = gameCycles + 1;
                 } while (gameCycles < 14);
                 System.out.println(scorecard.display());

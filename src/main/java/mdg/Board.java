@@ -1,11 +1,12 @@
 package mdg;
 
 /**
- *  Developer: Matthew Dear
- *  GitHub: http://www.github.com/mattdear
+ * Developer: Matthew Dear
+ * GitHub: http://www.github.com/mattdear
  */
 
 public class Board {
+
     private int activeOnes;
     private int activeTwos;
     private int activeThrees;
@@ -69,6 +70,7 @@ public class Board {
     public void setActiveSixes(int activeSixes) {
         this.activeSixes = activeSixes;
     }
+
     public String diceValues(int dice1, int dice2, int dice3, int dice4, int dice5) {
         String output = "\n| Roll --------------------------|\n"
                 + "| Dice  | 1  | 2  | 3  | 4  | 5  |\n"
@@ -81,27 +83,27 @@ public class Board {
         int diceTotal = dice1 + dice2 + dice3 + dice4 + dice5;
         return diceTotal;
     }
-    
-    public void activeDice(Board board, int value){
-        switch(value){
+
+    public void activeDice(Board board, int value) {
+        switch (value) {
             case 1:
                 board.setActiveOnes(activeOnes = activeOnes + 1);
                 break;
             case 2:
-                board.setActiveTwos(activeTwos = activeTwos +1);
+                board.setActiveTwos(activeTwos = activeTwos + 1);
                 break;
             case 3:
-                board.setActiveThrees(activeThrees = activeThrees +1);
-                break;    
+                board.setActiveThrees(activeThrees = activeThrees + 1);
+                break;
             case 4:
-                board.setActiveFours(activeFours = activeFours+1);
-                break;    
+                board.setActiveFours(activeFours = activeFours + 1);
+                break;
             case 5:
-                board.setActiveFives(activeFives=activeFives+1);
-                break;    
+                board.setActiveFives(activeFives = activeFives + 1);
+                break;
             case 6:
-                board.setActiveSixes(activeSixes=activeSixes+1);
-                break;    
+                board.setActiveSixes(activeSixes = activeSixes + 1);
+                break;
         }
     }
 }

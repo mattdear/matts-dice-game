@@ -4,12 +4,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *  Developer: Matthew Dear
- *  GitHub: http://www.github.com/mattdear
+ * Developer: Matthew Dear 
+ * GitHub: http://www.github.com/mattdear
  */
 
 public class ScorecardTest {
-    
+
     /**
      * Test of constructor method, of class Scorecard.
      */
@@ -18,7 +18,7 @@ public class ScorecardTest {
         Scorecard instance = new Scorecard();
         assertNotNull(instance);
     }
-    
+
     /**
      * Test of getOnes method, of class Scorecard.
      */
@@ -53,7 +53,7 @@ public class ScorecardTest {
         int expResult = 0;
         int result = instance.getTwos();
         assertEquals(expResult, result);
-        
+
     }
 
     /**
@@ -89,7 +89,7 @@ public class ScorecardTest {
         int threes = 3;
         Scorecard instance = new Scorecard();
         instance.setThrees(threes);
-        assertEquals(threes, instance.getThrees());        
+        assertEquals(threes, instance.getThrees());
     }
 
     /**
@@ -427,7 +427,7 @@ public class ScorecardTest {
         instance.setTotalScore(totalScore);
         assertEquals(totalScore, instance.getTotalScore());
     }
-    
+
     /**
      * Test of display method, of class Scorecard.
      */
@@ -435,30 +435,30 @@ public class ScorecardTest {
     public void testDisplay() {
         System.out.println("display");
         Scorecard instance = new Scorecard();
-    String output = "\n|      MDG Scorecard     |\n"
-                     + "| Top Section -----------|\n"
-                     + "| 1  | Ones          | 0 |\n"
-                     + "| 2  | Twos          | 0 |\n"
-                     + "| 3  | Threes        | 0 |\n"
-                     + "| 4  | Fours         | 0 |\n"
-                     + "| 5  | Fives         | 0 |\n"
-                     + "| 6  | Sixes         | 0 |\n"
-                     + "| -  | Bonus         | 0 |\n"
-                     + "| Bottom Section --------|\n"
-                     + "| 7  | 2/3 Match     | 0 |\n"
-                     + "| 8  | 3 Match       | 0 |\n"
-                     + "| 9  | 4 Match       | 0 |\n"
-                     + "| 10 | 5 Match       | 0 |\n"
-                     + "| 11 | 3 Line        | 0 |\n"
-                     + "| 12 | 4 Line        | 0 |\n"
-                     + "| 13 | Extra         | 0 |\n"
-                     + "| Totals ----------------|\n"
-                     + "| -  | Top Score     | 0 |\n" 
-                     + "| -  | Bottom Score  | 0 |\n"         
-                     + "| -  | Total Score   | 0 |\n";
+        String output = "\n|      MDG Scorecard     |\n"
+                + "| Top Section -----------|\n"
+                + "| 1  | Ones          | 0 |\n"
+                + "| 2  | Twos          | 0 |\n"
+                + "| 3  | Threes        | 0 |\n"
+                + "| 4  | Fours         | 0 |\n"
+                + "| 5  | Fives         | 0 |\n"
+                + "| 6  | Sixes         | 0 |\n"
+                + "| -  | Bonus         | 0 |\n"
+                + "| Bottom Section --------|\n"
+                + "| 7  | 2/3 Match     | 0 |\n"
+                + "| 8  | 3 Match       | 0 |\n"
+                + "| 9  | 4 Match       | 0 |\n"
+                + "| 10 | 5 Match       | 0 |\n"
+                + "| 11 | 3 Line        | 0 |\n"
+                + "| 12 | 4 Line        | 0 |\n"
+                + "| 13 | Extra         | 0 |\n"
+                + "| Totals ----------------|\n"
+                + "| -  | Top Score     | 0 |\n"
+                + "| -  | Bottom Score  | 0 |\n"
+                + "| -  | Total Score   | 0 |\n";
         assertEquals(output, instance.display());
     }
-    
+
     /**
      * Test of calcTopScore method, of class Scorecard.
      */
@@ -473,13 +473,13 @@ public class ScorecardTest {
         instance.setTwos(2);
         instance.setThrees(3);
         instance.setFours(4);
-        instance.setFives(5); 
+        instance.setFives(5);
         instance.setSixes(6);
         instance.calcTopScore();
         assertEquals(topScore, instance.getTopScore());
         assertEquals(topBonus, instance.getTopBonus());
     }
-    
+
     /**
      * Test of calcTopScoreWithBonus method, of class Scorecard.
      */
@@ -494,13 +494,13 @@ public class ScorecardTest {
         instance.setTwos(8);
         instance.setThrees(12);
         instance.setFours(16);
-        instance.setFives(20); 
+        instance.setFives(20);
         instance.setSixes(24);
         instance.calcTopScore();
         assertEquals(topScore, instance.getTopScore());
         assertEquals(topBonus, instance.getTopBonus());
     }
-    
+
     /**
      * Test of calcTopScoreWithBonusOn63 method, of class Scorecard.
      */
@@ -515,13 +515,13 @@ public class ScorecardTest {
         instance.setTwos(0);
         instance.setThrees(3);
         instance.setFours(16);
-        instance.setFives(20); 
+        instance.setFives(20);
         instance.setSixes(24);
         instance.calcTopScore();
         assertEquals(topScore, instance.getTopScore());
         assertEquals(topBonus, instance.getTopBonus());
     }
-    
+
     /**
      * Test of calcTopScoreWithoutBonusOn62 method, of class Scorecard.
      */
@@ -536,13 +536,13 @@ public class ScorecardTest {
         instance.setTwos(2);
         instance.setThrees(0);
         instance.setFours(16);
-        instance.setFives(20); 
+        instance.setFives(20);
         instance.setSixes(24);
         instance.calcTopScore();
         assertEquals(topScore, instance.getTopScore());
         assertEquals(topBonus, instance.getTopBonus());
     }
-    
+
     /**
      * Test of calcBottomScore method, of class Scorecard.
      */
@@ -558,11 +558,11 @@ public class ScorecardTest {
         instance.setFiveMatch(4);
         instance.setThreeLine(5);
         instance.setFourLine(6);
-        instance.setExtras(7);   
+        instance.setExtras(7);
         instance.calcBottomScore();
         assertEquals(bottomScore, instance.getBottomScore());
     }
-    
+
     /**
      * Test of calcTotalScore method, of class Scorecard.
      */
@@ -576,7 +576,7 @@ public class ScorecardTest {
         instance.setTwos(2);
         instance.setThrees(3);
         instance.setFours(4);
-        instance.setFives(5); 
+        instance.setFives(5);
         instance.setSixes(6);
         instance.setTwoThreeMatch(1);
         instance.setThreeMatch(2);
@@ -590,5 +590,5 @@ public class ScorecardTest {
         instance.calcTotalScore();
         assertEquals(totalScore, instance.getTotalScore());
     }
-    
+
 }
