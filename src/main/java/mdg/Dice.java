@@ -34,7 +34,7 @@ public class Dice {
     }
 
     public void roll() {
-        int rollValue = new Random().nextInt(5) + 1;
+        int rollValue = new Random().nextInt(6) + 1;
         this.value = rollValue;
     }
 }
