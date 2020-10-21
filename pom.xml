@@ -4,6 +4,13 @@
   <artifactId>mdg</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>MattsDiceGame</name>
+    <distributionManagement>
+      <repository>
+        <id>github</id>
+        <name>GitHub Packages</name>
+        <url>https://maven.pkg.github.com/md/matts_dice_game</url>
+      </repository>
+    </distributionManagement>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
