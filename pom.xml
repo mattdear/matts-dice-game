@@ -8,7 +8,7 @@
       <repository>
         <id>github</id>
         <name>GitHub Packages</name>
-        <url>https://maven.pkg.github.com/md/matts_dice_game</url>
+        <url>https://maven.pkg.github.com/mattdear/matts_dice_game</url>
       </repository>
     </distributionManagement>
     <dependencies>
