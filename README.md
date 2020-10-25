@@ -1,5 +1,4 @@
 # matts_dice_game
-MDG is a CLI dice game based on Yahtzee. 
 
 ## Introduction
 
