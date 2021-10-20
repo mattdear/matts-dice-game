@@ -1,7 +1,7 @@
 package mdg;
 
 /**
- * Developer: Matthew Dear 
+ * Developer: Matthew Dear
  * GitHub: http://www.github.com/mattdear
  */
 
