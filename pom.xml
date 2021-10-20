@@ -3,7 +3,11 @@
   <groupId>com.md</groupId>
   <artifactId>mdg</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>MattsDiceGame</name>
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+    <name>MattsDiceGame</name>
     <distributionManagement>
       <repository>
         <id>github</id>

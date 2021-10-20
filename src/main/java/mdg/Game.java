@@ -211,94 +211,107 @@ public class Game {
                         if (userInputNumber == 1) { //Ones
                             if (scorecard.getOnes() == 0 && board.getActiveOnes() > 0) {
                                 scorecard.setOnes(board.getActiveOnes()*1);
-                                isScorecardLocation = false;
                             } else {
-                                System.out.println("\nInput invalid, please try again.\n\n");
+                                scorecard.setOnes(0);
+                                System.out.println("\nThis scorecard row has been zeroed due to invalid dice.\n\n");
                             }
+                            isScorecardLocation = false;
                         } else if (userInputNumber == 2) { //Twos
                             if (scorecard.getTwos() == 0 && board.getActiveTwos() > 0) {
                                 scorecard.setTwos(board.getActiveTwos()*2);
-                                isScorecardLocation = false;
                             } else {
-                                System.out.println("\nInput invalid, please try again.\n\n");
+                                scorecard.setTwos(0);
+                                System.out.println("\nThis scorecard row has been zeroed due to invalid dice.\n\n");
                             }
+                            isScorecardLocation = false;
                         } else if (userInputNumber == 3) { //Threes
                             if (scorecard.getThrees() == 0 && board.getActiveThrees() > 0) {
                                 scorecard.setThrees(board.getActiveThrees()*3);
-                                isScorecardLocation = false;
                             } else {
-                                System.out.println("\nInput invalid, please try again.\n\n");
+                                scorecard.setThrees(0);
+                                System.out.println("\nThis scorecard row has been zeroed due to invalid dice.\n\n");
                             }
+                            isScorecardLocation = false;
                         } else if (userInputNumber == 4) { //Fours
                             if (scorecard.getFours() == 0 && board.getActiveFours() > 0) {
                                 scorecard.setFours(board.getActiveFours()*4);
-                                isScorecardLocation = false;
                             } else {
-                                System.out.println("\nInput invalid, please try again.\n\n");
+                                scorecard.setFours(0);
+                                System.out.println("\nThis scorecard row has been zeroed due to invalid dice.\n\n");
                             }
+                            isScorecardLocation = false;
                         } else if (userInputNumber == 5) { //Fives
                             if (scorecard.getFives() == 0 && board.getActiveFives() > 0) {
                                 scorecard.setFives(board.getActiveFives()*5);
-                                isScorecardLocation = false;
                             } else {
-                                System.out.println("\nInput invalid, please try again.\n\n");
+                                scorecard.setFives(0);
+                                System.out.println("\nThis scorecard row has been zeroed due to invalid dice.\n\n");
                             }
+                            isScorecardLocation = false;
                         } else if (userInputNumber == 6) { //Sixes
                             if (scorecard.getSixes() == 0 && board.getActiveSixes() > 0) {
                                 scorecard.setSixes(board.getActiveSixes()*6);
-                                isScorecardLocation = false;
                             } else {
-                                System.out.println("\nInput invalid, please try again.\n\n");
+                                scorecard.setSixes(0);
+                                System.out.println("\nThis scorecard row has been zeroed due to invalid dice.\n\n");
                             }
+                            isScorecardLocation = false;
                         } else if (userInputNumber == 7) { //2 3 Match
                             if ((board.getActiveOnes() == 2 || board.getActiveTwos() == 2 || board.getActiveThrees() == 2 || board.getActiveFours() == 2 || board.getActiveFives() == 2 || board.getActiveSixes() == 2) && (board.getActiveOnes() == 3 || board.getActiveTwos() == 3 || board.getActiveThrees() == 3 || board.getActiveFours() == 3 || board.getActiveFives() == 3 || board.getActiveSixes() == 3) && scorecard.getTwoThreeMatch() == 0) {
                                 scorecard.setTwoThreeMatch(25);
-                                isScorecardLocation = false;
                             } else {
-                                System.out.println("\nInput invalid, please try again.\n\n");
+                                scorecard.setTwoThreeMatch(0);
+                                System.out.println("\nThis scorecard row has been zeroed due to invalid dice.\n\n");
                             }
+                            isScorecardLocation = false;
                         } else if (userInputNumber == 8) { //3 Match
                             if ((board.getActiveOnes() == 3 || board.getActiveTwos() == 3 || board.getActiveThrees() == 3 || board.getActiveFours() == 3 || board.getActiveFives() == 3 || board.getActiveSixes() == 3) && scorecard.getThreeMatch() == 0) {
                                 scorecard.setThreeMatch(diceTotal);
-                                isScorecardLocation = false;
                             } else {
-                                System.out.println("\nInput invalid, please try again.\n\n");
+                                scorecard.setThreeMatch(0);
+                                System.out.println("\nThis scorecard row has been zeroed due to invalid dice.\n\n");
                             }
+                            isScorecardLocation = false;
                         } else if (userInputNumber == 9) { //4 Match
                             if ((board.getActiveOnes() == 4 || board.getActiveTwos() == 4 || board.getActiveThrees() == 4 || board.getActiveFours() == 4 || board.getActiveFives() == 4 || board.getActiveSixes() == 4) && scorecard.getFourMatch() == 0) {
                                 scorecard.setFourMatch(diceTotal);
-                                isScorecardLocation = false;
                             } else {
-                                System.out.println("\nInput invalid, please try again.\n\n");
+                                scorecard.setFourMatch(0);
+                                System.out.println("\nThis scorecard row has been zeroed due to invalid dice.\n\n");
                             }
+                            isScorecardLocation = false;
                         } else if (userInputNumber == 10) { //5 Match
                             if ((board.getActiveOnes() == 5 || board.getActiveTwos() == 5 || board.getActiveThrees() == 5 || board.getActiveFours() == 5 || board.getActiveFives() == 5 || board.getActiveSixes() == 5) && scorecard.getFiveMatch() == 0) {
                                 scorecard.setFiveMatch(50);
-                                isScorecardLocation = false;
                             } else {
-                                System.out.println("\nInput invalid, please try again.\n\n");
+                                scorecard.setFiveMatch(0);
+                                System.out.println("\nThis scorecard row has been zeroed due to invalid dice.\n\n");
                             }
+                            isScorecardLocation = false;
                         } else if (userInputNumber == 11) { //3 Line
                             if (tempDiceString.length() >= 3 && scorecard.getThreeLine() == 0) {
                                 scorecard.setThreeLine(30);
-                                isScorecardLocation = false;
                             } else {
-                                System.out.println("\nInput invalid, please try again.\n\n");
+                                scorecard.setThreeLine(0);
+                                System.out.println("\nThis scorecard row has been zeroed due to invalid dice.\n\n");
                             }
+                            isScorecardLocation = false;
                         } else if (userInputNumber == 12) { //4 Line
                             if (tempDiceString.length() >= 4 && scorecard.getFourLine() == 0) {
                                 scorecard.setFourLine(40);
-                                isScorecardLocation = false;
                             } else {
-                                System.out.println("\nInput invalid, please try again.\n\n");
+                                scorecard.setFourLine(0);
+                                System.out.println("\nThis scorecard row has been zeroed due to invalid dice.\n\n");
                             }
+                            isScorecardLocation = false;
                         } else if (userInputNumber == 13) { //Extras
                             if (scorecard.getExtras() == 0) {
                                 scorecard.setExtras(diceTotal);
-                                isScorecardLocation = false;
                             } else {
-                                System.out.println("\nInput invalid, please try again.\n\n");
+                                scorecard.setExtras(0);
+                                System.out.println("\nThis scorecard row has been zeroed due to invalid dice.\n\n");
                             }
+                        isScorecardLocation = false;
                         } else {
                             System.out.println("\nInput invalid, please try again.\n\n");
                         }
